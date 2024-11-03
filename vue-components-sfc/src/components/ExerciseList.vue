@@ -1,5 +1,6 @@
 <script>
 import ExerciseItemCard from './ExerciseItemCard.vue';
+// Will need to import weight and cardio exercise to this time to look at is 50:00 on video
 export default {
     name: "ExerciseList",
     components: {
