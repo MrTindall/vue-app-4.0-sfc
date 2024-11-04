@@ -1,0 +1,438 @@
+$primary: rgb(1, 80, 126);
+$primary-dark: rgb(0, 55, 87);
+$primary-darker: rgb(0, 40, 63);
+$dark: rgb(25, 25, 25);
+$secondary-color: rgb(153, 153, 153);
+$secondary-color-dark: rgb(94, 94, 94);
+$light-text-color: rgb(255, 255, 255);
+$display-font-weight: 600;
+
+// include bootstrap 
+// Do I need to change this now???
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+    background-color: $dark;
+}
+
+.navContainer {
+    .navbar {
+        font-size: 3vh;
+        border-bottom: solid 2px white;
+    }
+}
+
+.navbar-brand {
+    font-size: 3vh;
+}
+
+.nav-link:hover {
+    color: $primary-dark;
+}
+
+.nav-link:active {
+    color: $primary-darker;
+}
+
+.navbar-brand:hover {
+    color: $primary-dark;
+}
+
+.navbar.navbar-light {
+    border-top: solid 2px white;
+}
+
+.nav.nav-tabs.workoutTabs {
+    border: 0;
+}
+
+.workoutTabs {
+    .nav-item a {
+        color: $light-text-color;
+        font-weight: $display-font-weight;
+    }
+}
+
+.workoutTabs {
+    .nav-item a[aria-current="page"] {
+        color: $dark;
+    }
+}
+
+.card {
+    color: $light-text-color;
+    background-color: $primary;
+    border: solid 2px white;
+    border-radius: 0;
+    height: 75vh;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    padding: 0;
+}
+
+.card-body-exercisesList {
+    height: fit-content;
+    border-radius: 12px;
+}
+
+.container {
+    .img-thumbnail {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+}
+
+.container-fluid.navContainer {
+    background-color: $primary;
+    height: 15vh;
+}
+
+.navbar.navbar-light.bg-light.fixed-bottom.d-lg-none {
+    .container-fluid {
+        font-size: 20px;
+        background-color: $primary;
+        height: 9vh;
+    }
+}
+
+.nav-item.flex-fill {
+    padding: 10px;
+}
+
+.nav-item.flex-fill.left {
+    border-left: solid 1px white;
+}
+
+.nav-item.flex-fill.right {
+    border-right: solid 1px white;
+}
+
+.textColor {
+    color: $light-text-color;
+}
+
+.list-group-item {
+    font-size: 20px;
+}
+
+.WorkoutContent {
+    border: 3px solid white;
+    height: 55vh;
+    border-radius: 12px;
+    background-color: $dark;
+}
+
+.WorkoutContent {
+    .list-group.list-group-flush li {
+        border-radius: 12px;
+    }
+}
+
+.WorkoutContentRemove {
+    border: 3px solid white;
+    height: 47vh;
+    border-radius: 12px;
+    background-color: $dark;
+}
+
+.WorkoutContentRemove {
+    .list-group.list-group-flush li {
+        border-radius: 12px;
+    }
+}
+
+.WorkoutContentBuild {
+    border: 3px solid white;
+    height: 27vh;
+    border-radius: 12px;
+    background-color: $dark;
+}
+
+.WorkoutContentBuild {
+    .list-group.list-group-flush li {
+        border-radius: 12px;
+    }
+}
+
+.qtyChange {
+    font-size: 13px;
+    font-weight: $display-font-weight;
+    color: $dark;
+    background-color: $primary;
+    border: 2px solid white;
+    width: 35px;
+    height: 26px;
+    border-radius: 12px;
+    color: $light-text-color;
+}
+
+.plus:hover {
+    background-color: $primary-dark;
+}
+
+.plus:active {
+    background-color: $primary-darker;
+}
+
+.minus:hover {
+    background-color: $primary-dark;
+}
+
+.minus:active {
+    background-color: $primary-darker;
+}
+
+.removeChange {
+    font-size: 15px;
+    font-weight: $display-font-weight;
+    color: $dark;
+    background-color: $primary;
+    width: 40px;
+    height: 30px;
+    border-radius: 12px;
+    border: 2px solid white;
+    color: $light-text-color;
+}
+
+.bottomSpacer {
+    padding-bottom: 75px;
+}
+
+button.addWorkout {
+    font-weight: $display-font-weight;
+    font-size: 16px;
+    height: 40px;
+    width: 130px;
+    border-radius: 12px;
+    border: 2px solid white;
+    background-color: $primary;
+    color: $light-text-color;
+}
+
+button.addWorkout:hover {
+    background-color: $primary-dark;
+}
+
+button.addWorkout:active {
+    background-color: $primary-darker;
+}
+
+button.editWorkout {
+    font-weight: $display-font-weight;
+    font-size: 12px;
+    height: 40px;
+    width: 80px;
+    border-radius: 12px;
+    border: 2px solid white;
+    background-color: $primary;
+    color: $light-text-color;
+}
+
+button.editWorkout:hover {
+    background-color: $primary-dark;
+}
+
+button.editWorkout:active {
+    background-color: $primary-darker;
+}
+
+button.save {
+    width: 160px;
+}
+
+button.add {
+    width: 160px;
+}
+
+.startWorkout {
+    font-weight: $display-font-weight;
+    font-size: 16px;
+    height: 50px;
+    width: 200px;
+    border-radius: 12px;
+    border: 2px solid white;
+    background-color: $primary;
+    color: $light-text-color;
+}
+
+button.startWorkout:hover {
+    background-color: $primary-dark;
+}
+
+button.startWorkout:active {
+    background-color: $primary-darker;
+}
+
+.list-group-item {
+    color: $light-text-color;
+    background-color: $primary;
+    border: 0;
+}
+
+.underline {
+    border-bottom: 3px solid white;
+}
+
+.background-image {
+    padding: 0;
+    margin: 0;
+    background-image: url('img/yoga.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh;
+}
+
+.modal-background-color {
+    background-color: $primary;
+    color: $light-text-color;
+    border: 2px solid white;
+}
+
+.btn-bg-color {
+    background-color: $light-text-color;
+    color: $primary-darker;
+}
+
+.btn-bg-color:hover {
+    background-color: $secondary-color;
+}
+
+.btn.btn-primary.btn-bg-color:active {
+    background-color: $primary-darker;
+    border: 2px solid white;
+}
+
+#flexSwitchCheckDefault:checked {
+    background-color: $primary-darker;
+}
+
+.modal-body {
+    height: 60vh;
+}
+
+.modal-body.builder {
+    height: 75vh;
+}
+
+.iconImage {
+    height: 14vh;
+}
+
+.input-group-text {
+    width: 110px;
+    color: $light-text-color;
+    background-color: $primary;
+}
+
+.btn-outline-secondary {
+    color: $light-text-color;
+    width: 80px;
+    border: 1px solid white;
+}
+
+.btn-outline-secondary:hover {
+    color: $primary-dark;
+}
+
+.btn-outline-secondary:active {
+    color: $primary-darker;
+}
+
+.btn-outline-secondary.dropdown-toggle.dropdown-toggle-split {
+    width: 30px;
+}
+
+.added-background-color {
+    background-color: $dark;
+}
+
+.custom-card {
+    width: 244px;
+    height: 140px;
+    border-radius: 10px;
+}
+
+span {
+    font-size: 16px;
+}
+
+@media (max-width:1400px) {
+    .custom-card {
+        width: 193px;
+    }
+}
+
+@media (max-width:1199px) {
+    .background-image {
+        border-bottom: 0;
+    }
+
+    button.addWorkout {
+        height: 30px;
+        width: 80px;
+    }
+
+    .list-group-item {
+        font-size: 16px;
+    }
+
+    button.save {
+        width: 80px;
+    }
+
+    .custom-card {
+        width: 200px;
+    }
+}
+
+@media (max-width: 1171px) {
+    .custom-card {
+        width: 201px;
+    }
+
+}
+
+@media (max-width: 1100px) {
+    .workoutTabs .nav-item a {
+        color: $light-text-color;
+        font-weight: $display-font-weight;
+        font-size: 10px;
+        padding: 5px;
+    }
+
+}
+
+@media (max-width:990px) {
+    .custom-card {
+        width: 187px;
+    }
+}
+
+@media (max-width:768px) {
+    .custom-card {
+        width: 200px;
+    }
+}
+
+@media (max-width:575px) {
+    .custom-card {
+        width: 217px;
+    }
+}
+
+
+@media (max-width: 571px) {
+
+    .custom-card {
+        width: 80vw;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .custom-card {
+        width: 270px;
+    }
+}
