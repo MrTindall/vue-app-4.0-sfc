@@ -1,4 +1,5 @@
 <script>
+
 import WeightExercise from '@/models/weight-exercise';
 import CardioExercise from '@/models/cardio-exercise';
     const ExerciseItemCard = {
