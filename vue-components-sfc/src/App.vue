@@ -2,6 +2,8 @@
 import ExerciseList from './components/ExerciseList.vue';
 import WorkoutList from './components/WorkoutList.vue';
 import ExerciseItemCard from './components/ExerciseItemCard.vue';
+import CardioExercise from './models/cardio-exercise';
+import WeightExercise from './models/weight-exercise';
   export default {
     components: {
       ExerciseList,
