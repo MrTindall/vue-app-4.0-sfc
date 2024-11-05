@@ -1,6 +1,8 @@
 <script>
 import WeightExercise from '@/models/weight-exercise';
 import CardioExercise from '@/models/cardio-exercise';
+
+// Ask if this is the reason my list items are not displaying
     const ExerciseItemCard = {
         props: {
             item: {
