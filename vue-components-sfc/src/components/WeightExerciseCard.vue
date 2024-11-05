@@ -1,14 +1,12 @@
 <script>
 import ExerciseItemCard from './ExerciseItemCard.vue';
 import WeightExercise from '@/models/weight-exercise';
-import CardioExercise from '@/models/cardio-exercise';
 
 export default {
     name: "WeightExerciseCard",
     extends: ExerciseItemCard,
     components: {
         WeightExercise,
-        CardioExercise,
     },
 }
 
