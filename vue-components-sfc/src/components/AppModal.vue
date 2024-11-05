@@ -1,5 +1,4 @@
 <script>
-import 'bootstrap';
   export default {
     name: "AppModal",
     data: function () {

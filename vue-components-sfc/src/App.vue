@@ -1,7 +1,12 @@
 <script>
-import ExerciseList from './components/ExerciseList.vue';
-import WorkoutList from './components/WorkoutList.vue';
+import AppModal from './components/AppModal.vue';
+import CardioExerciseCard from './components/CardioExerciseCard.vue';
 import ExerciseItemCard from './components/ExerciseItemCard.vue';
+import ExerciseList from './components/ExerciseList.vue';
+import WeightExerciseCard from './components/WeightExerciseCard.vue';
+import WorkoutList from './components/WorkoutList.vue';
+import WorkoutListItem from './components/WorkoutListItem.vue';
+import Exercise from './models/exercise';
 import CardioExercise from './models/cardio-exercise';
 import WeightExercise from './models/weight-exercise';
   export default {
@@ -9,6 +14,11 @@ import WeightExercise from './models/weight-exercise';
       ExerciseList,
       WorkoutList,
       ExerciseItemCard,
+      AppModal,
+      WorkoutListItem,
+      CardioExerciseCard,
+      Exercise,
+      WeightExerciseCard,
     },
       // data: all the data for the app, must return an object
       data: function () {

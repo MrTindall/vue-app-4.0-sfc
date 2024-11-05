@@ -1,4 +1,5 @@
 <script>
+import * as bootstrap from 'bootstrap';
 import ExerciseList from './ExerciseList.vue';
   export default {
     name: "WorkoutListItem",
@@ -7,7 +8,7 @@ import ExerciseList from './ExerciseList.vue';
     },
     data: function () {
         return {
-            isCollapsed: true, // Initialize the collapsed state
+            isCollapsed: true,
         };
     },
 
