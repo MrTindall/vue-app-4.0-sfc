@@ -9,226 +9,226 @@ import WorkoutListItem from './components/WorkoutListItem.vue';
 import Exercise from './models/exercise';
 import CardioExercise from './models/cardio-exercise';
 import WeightExercise from './models/weight-exercise';
-  export default {
+export default {
     components: {
-      ExerciseList,
-      WorkoutList,
-      ExerciseItemCard,
-      AppModal,
-      WorkoutListItem,
-      CardioExerciseCard,
-      Exercise,
-      WeightExerciseCard,
-      CardioExercise,
-      WeightExercise,
+        ExerciseList,
+        WorkoutList,
+        ExerciseItemCard,
+        AppModal,
+        WorkoutListItem,
+        CardioExerciseCard,
+        Exercise,
+        WeightExerciseCard,
+        CardioExercise,
+        WeightExercise,
     },
-      // data: all the data for the app, must return an object
-      data: function () {
-          return {
-              exerciseType: Object.freeze({
-                  WEIGHT: 'Weight',
-                  CARDIO: 'Cardio',
-              }),
-              selectedExerciseType: null,
-              selectedWorkout: null,
-              tempBuilderWorkoutName: '',
-              
-              exercise: {
-                  name: '',
-                  amount: 0,
-                  sets: 3,
-                  remove: false,
-                  isActive: false,
-              },
-              newWorkout: {
-                  title: '',
-              },
-              workouts: [
-                  {
-                      title: 'Push',
-                      exercises: [
-                          new CardioExercise('Run', 10, 1),
-                          new WeightExercise('Arnold Press', 185, 4),
-                          new WeightExercise('Bench Press', 185, 4),
-                          new WeightExercise('Incline DB Press', 50, 4),
-                          new WeightExercise('Pushups', 0, 4),
-                          new WeightExercise('Cable Crossover', 60, 4),
-                          new WeightExercise('Shoulder Press', 40, 4),
-                          new WeightExercise('Lateral Raises', 15, 4),
-                          new WeightExercise('Front Raise', 15, 4),
-                          new WeightExercise('Tricep Extensions', 40, 4),
-                          new WeightExercise('Skull Crushers', 60, 4),
-                      ] 
-                  },
-                  {
-                      title: 'Pull',
-                      exercises: [
-                          new CardioExercise('Run', 10, 1, 1),
-                          new WeightExercise('Pullups', 0, 4),
-                          new WeightExercise('DB Row', 185, 4),
-                      ] 
-                  },
-                  {
-                      title: 'Legs',
-                      exercises: [
-                          new CardioExercise('Run', 10, 12, 1),
-                          new WeightExercise('Deadlift', 335, 3),
-                          new WeightExercise('Squat', 235, 3),
-                          new WeightExercise('Lunges', 40, 4),
-                      ] 
-                  },
-                  
-              ],
-              builderTempList: [],
-              tempWorkout: {
-                  title: '',
-                  exercises: []
-              },
-      }
-      },
+    // data: all the data for the app, must return an object
+    data: function () {
+        return {
+            exerciseType: Object.freeze({
+                WEIGHT: 'Weight',
+                CARDIO: 'Cardio',
+            }),
+            selectedExerciseType: null,
+            selectedWorkout: null,
+            tempBuilderWorkoutName: '',
 
-      // methods: usually "events" triggered by v-on:
-      methods: {
-          chooseWorkout() {
-              this.tempWorkout = {
-                  title: this.selectedWorkout.title,
-                  exercises: [...this.selectedWorkout.exercises]
-              };
-              this.tempWorkout.exercises.forEach((exercise) => {
-                  exercise.isActive = true;
-                  console.log(exercise)
-              })
-              
-          },
+            exercise: {
+                name: '',
+                amount: 0,
+                sets: 3,
+                remove: false,
+                isActive: false,
+            },
+            newWorkout: {
+                title: '',
+            },
+            workouts: [
+                {
+                    title: 'Push',
+                    exercises: [
+                        new CardioExercise('Run', 10, 1),
+                        new WeightExercise('Arnold Press', 185, 4),
+                        new WeightExercise('Bench Press', 185, 4),
+                        new WeightExercise('Incline DB Press', 50, 4),
+                        new WeightExercise('Pushups', 0, 4),
+                        new WeightExercise('Cable Crossover', 60, 4),
+                        new WeightExercise('Shoulder Press', 40, 4),
+                        new WeightExercise('Lateral Raises', 15, 4),
+                        new WeightExercise('Front Raise', 15, 4),
+                        new WeightExercise('Tricep Extensions', 40, 4),
+                        new WeightExercise('Skull Crushers', 60, 4),
+                    ]
+                },
+                {
+                    title: 'Pull',
+                    exercises: [
+                        new CardioExercise('Run', 10, 1, 1),
+                        new WeightExercise('Pullups', 0, 4),
+                        new WeightExercise('DB Row', 185, 4),
+                    ]
+                },
+                {
+                    title: 'Legs',
+                    exercises: [
+                        new CardioExercise('Run', 10, 12, 1),
+                        new WeightExercise('Deadlift', 335, 3),
+                        new WeightExercise('Squat', 235, 3),
+                        new WeightExercise('Lunges', 40, 4),
+                    ]
+                },
 
-          createWorkout() {
-              if (this.newWorkout.title && this.builderTempList.length > 0) {
-                  if (this.selectedExerciseType === this.exerciseType.WEIGHT) {
-                      this.workouts.push({
-                          title: this.newWorkout.title,
-                          exercises: this.builderTempList.map(exercise => 
-                              new WeightExercise(exercise.name, exercise.amount, exercise.sets, exercise.isActive = false)
-                          )
-                      });
-                  } else if (this.selectedExerciseType === this.exerciseType.CARDIO) {
-                      this.workouts.push({
-                          title: this.newWorkout.title,
-                          exercises: this.builderTempList.map(exercise => 
-                              new CardioExercise(exercise.name, exercise.amount, exercise.isActive = false)
-                          )
-                      });
-                  }
-          
-                  // Reset fields after adding workout
-                  this.newWorkout = { title: '' };
-                  this.builderTempList = [];
-              } else {
-                  alert("Please provide a valid workout name and at least one exercise.");
-              }
-          },
-          addExercise() {
-              this.exerciseList.push(this.exercise);
-              this.exercise = {
-                  name: '',
-                  amount: 0,
-                  sets: 3,
-                  remove: false,
-                  isActive: false,
-              };
-          },
-          addBuildExercise() {
-              let newExercise;
-              // Check if the current exercise is Cardio or Weight
-              if (this.selectedExerciseType === this.exerciseType.CARDIO) {
-                  newExercise = new CardioExercise(this.exercise.name, this.exercise.amount, this.exercise.sets);
-              } else if(this.selectedExerciseType === this.exerciseType.WEIGHT) {
-                  newExercise = new WeightExercise(this.exercise.name, this.exercise.amount, this.exercise.sets);
-              }
-          
-              // Push the new exercise to the list
-              this.builderTempList.push(newExercise);
-          
-              // Reset the exercise input fields
-              this.exercise = {
-                  name: '',
-                  amount: 0,
-                  sets: 3,
-                  remove: false,
-                  isActive: false,
-                  isCardio: false, // Ensure to reset the exercise type
-              };
-          },
-          setTempBuilderWorkoutName() {
-              this.tempBuilderWorkoutName = this.exercise.workoutName
-          },
-          addBuildExerciseToExerciseList() {
-              this.builderTempList.forEach((item) => {
-                  const exerciseToAdd = {
-                      name: item.name,
-                      amount: item.amount,
-                      sets: item.sets,
-                      remove: false,
-                      isActive: false,
-                  };
-                  this.workouts.push(exerciseToAdd);
-              });
-          
+            ],
+            builderTempList: [],
+            tempWorkout: {
+                title: '',
+                exercises: []
+            },
+        }
+    },
 
-              this.builderTempList = []; 
-              this.exercise = {
-                  name: '',
-                  amount: 0,
-                  sets: 3,
-                  remove: false,
-                  isActive: false,
-              };
-          },
-          finishWorkout() {
-              this.tempWorkout = // Reset tempWorkout
-              {
-                  title: '',
-                  exercises: []
-              },
-              
-            this.selectedWorkout = null; // Reset selectedWorkout
-          },
-      },
+    // methods: usually "events" triggered by v-on:
+    methods: {
+        chooseWorkout() {
+            this.tempWorkout = {
+                title: this.selectedWorkout.title,
+                exercises: [...this.selectedWorkout.exercises]
+            };
+            this.tempWorkout.exercises.forEach((exercise) => {
+                exercise.isActive = true;
+                console.log(exercise)
+            })
 
-      // computed: values that are updated and cached if dependencies change
-      computed: {
+        },
 
-          todoList() {
-              return this.tempWorkout?.exercises.filter((exercise) => exercise.sets > 0 && !exercise.remove && exercise.isActive === true) ?? [];
-          },
+        createWorkout() {
+            if (this.newWorkout.title && this.builderTempList.length > 0) {
+                if (this.selectedExerciseType === this.exerciseType.WEIGHT) {
+                    this.workouts.push({
+                        title: this.newWorkout.title,
+                        exercises: this.builderTempList.map(exercise =>
+                            new WeightExercise(exercise.name, exercise.amount, exercise.sets, exercise.isActive = false)
+                        )
+                    });
+                } else if (this.selectedExerciseType === this.exerciseType.CARDIO) {
+                    this.workouts.push({
+                        title: this.newWorkout.title,
+                        exercises: this.builderTempList.map(exercise =>
+                            new CardioExercise(exercise.name, exercise.amount, exercise.isActive = false)
+                        )
+                    });
+                }
 
-          completeList() {
-              return this.tempWorkout?.exercises.filter((exercise) => exercise.sets <= 0 && exercise.isActive === true || exercise.remove && exercise.isActive === true) ?? [];
-          },
-          
-          removeExerciseList() {
-              return this.tempWorkout?.exercises.filter((exercise) => exercise.sets > 0 && exercise.remove) ?? [];
-          },
-          
-          isActiveList() {
+                // Reset fields after adding workout
+                this.newWorkout = { title: '' };
+                this.builderTempList = [];
+            } else {
+                alert("Please provide a valid workout name and at least one exercise.");
+            }
+        },
+        addExercise() {
+            this.exerciseList.push(this.exercise);
+            this.exercise = {
+                name: '',
+                amount: 0,
+                sets: 3,
+                remove: false,
+                isActive: false,
+            };
+        },
+        addBuildExercise() {
+            let newExercise;
+            // Check if the current exercise is Cardio or Weight
+            if (this.selectedExerciseType === this.exerciseType.CARDIO) {
+                newExercise = new CardioExercise(this.exercise.name, this.exercise.amount, this.exercise.sets);
+            } else if (this.selectedExerciseType === this.exerciseType.WEIGHT) {
+                newExercise = new WeightExercise(this.exercise.name, this.exercise.amount, this.exercise.sets);
+            }
 
-              return this.tempWorkout?.exercises.filter((exercise) => exercise.remove && !exercise.isActive) ?? [];
-          },
-      },
+            // Push the new exercise to the list
+            this.builderTempList.push(newExercise);
 
-      //mounted:  called after the instance has been mounted,
-      mounted: function () {
+            // Reset the exercise input fields
+            this.exercise = {
+                name: '',
+                amount: 0,
+                sets: 3,
+                remove: false,
+                isActive: false,
+                isCardio: false, // Ensure to reset the exercise type
+            };
+        },
+        setTempBuilderWorkoutName() {
+            this.tempBuilderWorkoutName = this.exercise.workoutName
+        },
+        addBuildExerciseToExerciseList() {
+            this.builderTempList.forEach((item) => {
+                const exerciseToAdd = {
+                    name: item.name,
+                    amount: item.amount,
+                    sets: item.sets,
+                    remove: false,
+                    isActive: false,
+                };
+                this.workouts.push(exerciseToAdd);
+            });
 
-      },
 
-      // watch:   calls the function if the value changes
-      watch: {
+            this.builderTempList = [];
+            this.exercise = {
+                name: '',
+                amount: 0,
+                sets: 3,
+                remove: false,
+                isActive: false,
+            };
+        },
+        finishWorkout() {
+            this.tempWorkout = // Reset tempWorkout
+            {
+                title: '',
+                exercises: []
+            },
 
-      }
-  }
+                this.selectedWorkout = null; // Reset selectedWorkout
+        },
+    },
+
+    // computed: values that are updated and cached if dependencies change
+    computed: {
+
+        todoList() {
+            return this.tempWorkout?.exercises.filter((exercise) => exercise.sets > 0 && !exercise.remove && exercise.isActive === true) ?? [];
+        },
+
+        completeList() {
+            return this.tempWorkout?.exercises.filter((exercise) => exercise.sets <= 0 && exercise.isActive === true || exercise.remove && exercise.isActive === true) ?? [];
+        },
+
+        removeExerciseList() {
+            return this.tempWorkout?.exercises.filter((exercise) => exercise.sets > 0 && exercise.remove) ?? [];
+        },
+
+        isActiveList() {
+
+            return this.tempWorkout?.exercises.filter((exercise) => exercise.remove && !exercise.isActive) ?? [];
+        },
+    },
+
+    //mounted:  called after the instance has been mounted,
+    mounted: function () {
+
+    },
+
+    // watch:   calls the function if the value changes
+    watch: {
+
+    }
+}
 </script>
 
 <template>
-  <div class="container-fluid">
+    <div class="container-fluid">
         <div class="container-fluid my-3 contentContainer">
             <ul class="nav nav-tabs workoutTabs">
                 <li class="nav-item">
@@ -252,7 +252,8 @@ import WeightExercise from './models/weight-exercise';
                         <div class="card-body m-0 px-2 py-0">
                             <div class="d-flex pt-2">
                                 <div class="p-2 flex-grow-1">
-                                    <h4 class="card-title text-start">{{selectedWorkout ? selectedWorkout.title : 'Start'}}</h4>
+                                    <h4 class="card-title text-start">{{ selectedWorkout ? selectedWorkout.title :
+                                        'Start'}}</h4>
                                 </div>
                                 <!-- <div class="py-2 d-flex justify-content-end">
                                     <button type="button" class="addWorkout me-1" data-bs-toggle="modal"
@@ -279,7 +280,8 @@ import WeightExercise from './models/weight-exercise';
                         <div class="card-body m-0 px-2 py-0">
                             <div class="d-flex pt-2">
                                 <div class="p-2 flex-grow-1">
-                                    <h3 class="card-title text-start">{{selectedWorkout ? selectedWorkout.title : 'Finish'}}</h3>
+                                    <h3 class="card-title text-start">{{ selectedWorkout ? selectedWorkout.title :
+                                        'Finish'}}</h3>
                                 </div>
                                 <!-- <div class="py-2 d-flex justify-content-end">
                                     <button type="button" class="addWorkout me-1" data-bs-toggle="modal"
@@ -442,7 +444,7 @@ import WeightExercise from './models/weight-exercise';
                                     <input type="text" class="form-control" aria-label="WorkoutName"
                                         aria-describedby="WorkoutName1" v-model="newWorkout.title">
                                 </div>
-                                
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -467,7 +469,8 @@ import WeightExercise from './models/weight-exercise';
                             <div class="modal-body builder">
                                 <div class="mb-3">
                                     <label for="workoutName" class="form-label">Type of Exercise</label>
-                                    <select class="form-select" v-model="selectedExerciseType" aria-label="Select Exercise Type">
+                                    <select class="form-select" v-model="selectedExerciseType"
+                                        aria-label="Select Exercise Type">
                                         <option v-for="(type, key) in exerciseType" :key="key" :value="type">
                                             {{ key.charAt(0) + key.slice(1).toLowerCase() }}
                                         </option>
@@ -492,7 +495,7 @@ import WeightExercise from './models/weight-exercise';
                                             maxlength="25" v-model="exercise.name">
                                     </div>
                                 </div>
-                                
+
 
                                 <!-- Weight Input -->
                                 <div class="d-flex justify-content-between py-1">
@@ -537,7 +540,8 @@ import WeightExercise from './models/weight-exercise';
                                 <!-- Buttons for adding/removing -->
                                 <div class="d-flex justify-content-end mb-3">
                                     <button type="button" class="addWorkout me-2">Remove</button>
-                                    <button type="button" class="addWorkout" :disabled="!exercise.name || !selectedExerciseType"
+                                    <button type="button" class="addWorkout"
+                                        :disabled="!exercise.name || !selectedExerciseType"
                                         @click.prevent="addBuildExercise()">Add</button>
                                 </div>
 
@@ -575,7 +579,8 @@ import WeightExercise from './models/weight-exercise';
             <template #modal-footer>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-bg-color" data-bs-dismiss="modal" @click="chooseWorkout()">Start
+                    <button type="button" class="btn btn-primary btn-bg-color" data-bs-dismiss="modal"
+                        @click="chooseWorkout()">Start
                         Workout</button>
                 </div>
             </template>
@@ -593,8 +598,10 @@ import WeightExercise from './models/weight-exercise';
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
-                                <h3 for="workoutName" class="form-label text-center" v-bind="selectedWorkout">Congratulations on finishing
-                                    your {{selectedWorkout ? selectedWorkout.title : ''}} Workout!</h3>
+                                <h3 for="workoutName" class="form-label text-center" v-bind="selectedWorkout">
+                                    Congratulations on
+                                    finishing
+                                    your {{ selectedWorkout ? selectedWorkout.title : '' }} Workout!</h3>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -609,6 +616,4 @@ import WeightExercise from './models/weight-exercise';
     </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
