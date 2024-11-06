@@ -157,7 +157,7 @@ import WeightExercise from './models/weight-exercise';
               };
           },
           setTempBuilderWorkoutName() {
-              tempBuilderWorkoutName = this.exercise.workoutName
+              this.tempBuilderWorkoutName = this.exercise.workoutName
           },
           addBuildExerciseToExerciseList() {
               this.builderTempList.forEach((item) => {
