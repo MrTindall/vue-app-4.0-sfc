@@ -20,7 +20,7 @@ export default {
         Exercise,
         WeightExerciseCard,
         CardioExercise,
-        WeightExercise,
+        WeightExercise
     },
     // data: all the data for the app, must return an object
     data: function () {
@@ -184,7 +184,7 @@ export default {
             };
         },
         finishWorkout() {
-            this.tempWorkout = // Reset tempWorkout
+            this.tempWorkout =
             {
                 title: '',
                 exercises: []
