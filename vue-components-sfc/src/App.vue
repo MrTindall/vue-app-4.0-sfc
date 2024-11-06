@@ -155,7 +155,6 @@ export default {
                 sets: 3,
                 remove: false,
                 isActive: false,
-                isCardio: false, // Ensure to reset the exercise type
             };
         },
         setTempBuilderWorkoutName() {
