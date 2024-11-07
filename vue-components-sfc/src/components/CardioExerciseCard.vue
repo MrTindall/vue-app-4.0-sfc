@@ -1,6 +1,6 @@
 <script>
 
-import ExerciseItemCard from './ExerciseItemCard.vue';
+import ExerciseItemCard from '@/components/ExerciseItemCard.vue'
 import CardioExercise from '@/models/cardio-exercise';
 
 export default {
