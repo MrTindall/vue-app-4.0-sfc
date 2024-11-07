@@ -17,6 +17,7 @@ import CardioExercise from '@/models/cardio-exercise';
     };
     export default {
         name: "ExerciseItemCard",
+        extends: ExerciseItem,
         components: {
             WeightExercise,
             CardioExercise,
