@@ -19,8 +19,6 @@ export default {
         CardioExerciseCard,
         Exercise,
         WeightExerciseCard,
-        CardioExercise,
-        WeightExercise
     },
     // data: all the data for the app, must return an object
     data: function () {

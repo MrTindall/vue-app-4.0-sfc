@@ -3,7 +3,7 @@ import WeightExercise from '@/models/weight-exercise';
 import CardioExercise from '@/models/cardio-exercise';
 
 // Ask if this is the reason my list items are not displaying
-    const ExerciseItemCard = {
+    const ExerciseItem = {
         props: {
             item: {
                 type: Object,
@@ -20,7 +20,7 @@ import CardioExercise from '@/models/cardio-exercise';
         components: {
             WeightExercise,
             CardioExercise,
-            ExerciseItemCard,
+            ExerciseItem,
         },
     }
 </script>

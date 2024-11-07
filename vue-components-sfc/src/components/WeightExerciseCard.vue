@@ -6,7 +6,7 @@ export default {
     name: "WeightExerciseCard",
     extends: ExerciseItemCard,
     components: {
-        WeightExercise,
+        ExerciseItemCard
     },
 }
 
